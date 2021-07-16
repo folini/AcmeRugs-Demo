@@ -1,7 +1,12 @@
 // out: ../dist/, compress: true, sourceMap: false
 
+@pixels-per-foot: 20;
+
 :root {
   --wall-thickness: 10;
+  --pixels-per-foot: 20;
+  --initial-room-width: calc(12px * @pixels-per-foot);
+  --initial-room-length: calc(18px * @pixels-per-foot);
 }
 body {
   margin: 0;
@@ -42,16 +47,27 @@ main {
   }
 }
 
+  .room-label {
+    font-size: 48px;
+    font-weight: bold;
+    color: #ccc;
+    padding-left: 32px;
+    padding-top: 8px;
+    text-align: left;
+  }
+
 .walls {
   position: relative;
   background-color: #888;
-  width: 100px;
-  height: 100px;
-  margin-left: 60px;
-  margin-top: 60px;
+  width: var(--initial-room-width);
+  height: var(--initial-room-length);
+  margin-left: 32px;
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   .room {
-    background-color: #fff;
     position: absolute;
     top: var(--wall-thickness);
     left: var(--wall-thickness);

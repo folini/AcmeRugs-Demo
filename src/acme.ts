@@ -12,37 +12,35 @@ var initialY = 0
 var activeRugW = 0
 var activeRugH = 0
 
-const widthElement = document.getElementById('room-width') as HTMLInputElement
-const heightElement = document.getElementById('room-height') as HTMLInputElement
+const roomWidthElement = document.getElementById('room-width') as HTMLInputElement
+const roomLengthElement = document.getElementById('room-length') as HTMLInputElement
 const widthElementValue = document.getElementById('room-width-value') as HTMLSpanElement
-const heightElementValue = document.getElementById('room-height-value') as HTMLSpanElement
+const heightElementValue = document.getElementById('room-length-value') as HTMLSpanElement
 const catalog = document.getElementById('rugs-catalog') as HTMLDivElement
 const walls = document.getElementById('the-walls') as HTMLDivElement
 const room = document.getElementById('the-room') as HTMLDivElement
 
-addGrid(room)
+createRoomGrid(room)
 
 room.addEventListener('drop', (e) => dropRug(e))
 room.addEventListener('dragenter', (e) => dragEnterRug(e))
 room.addEventListener('dragover', (e) => dragOverRug(e))
 room.addEventListener('dragleave', (e) => dragLeaveRug(e))
 
-widthElement.addEventListener('input', roomSize)
-heightElement.addEventListener('input', roomSize)
+roomWidthElement.addEventListener('input', updateRoomArea)
+roomLengthElement.addEventListener('input', updateRoomArea)
 
-const catalogOfOfRugs: rugInfo[] = [
+const listOfRugs: rugInfo[] = [
     {name: 'Rug 1<span>7x10</span>', w: 7, h: 10, color: 'red', img: '../img/CarpetC.jpg'},
     {name: 'Rug 2<span>12x12</span>', w: 12, h: 12, color: 'green', img: '../img/CarpetB.png'},
     {name: 'Rug 3<span>12x6</span>', w: 12, h: 6, color: 'blue', img: '../img/CarpetD.png'},
 ]
 
-for(let i=1; i<=3; i++) {
-    addRugToCatalog(catalogOfOfRugs[i-1])
-}
+listOfRugs.forEach(rug => addToCatalog(rug))
 
 //---------------------------------------------------------------------
 // FUNCTIONS 
-function addGrid(room: HTMLDivElement) {
+function createRoomGrid(room: HTMLDivElement) {
     for(let i=1; i<100; i++) {
         const v = document.createElement('div')
         v.style.width = '1px'
@@ -73,7 +71,7 @@ function removeActiveRug() {
     }
 }
 
-function addRugToCatalog(rugInfo: rugInfo) {
+function addToCatalog(rugInfo: rugInfo) {
     const li = document.createElement('li')
     li.innerHTML = rugInfo.name
     const thumbnail = document.createElement('img')
@@ -124,7 +122,6 @@ function dragStartRug(e: DragEvent) {
     }, 0)
     initialX = e.offsetX
     initialY = e.offsetY
-    console.log(`Start rug drag... initialXY = (${initialX}, ${initialY})`)
 }
 
 function dragRug(e: DragEvent) {
@@ -164,13 +161,29 @@ function roundGridPosition(value: number, maxValue: number) {
     return ret
 }
 
-function roomSize() {
-    const width = parseInt(widthElement.value)
-    const height = parseInt(heightElement.value)
+function updateRoomArea() {
+    const LARGE_ROOM_AREA = 100
 
-    walls.style.width = (width * pixelsPerFoot).toFixed() + 'px'
-    walls.style.height = (height * pixelsPerFoot).toFixed() + 'px'
+    const roomWidth = parseInt(roomWidthElement.value)
+    const roomLength = parseInt(roomLengthElement.value)
+    const roomArea = roomWidth * roomLength
 
-    heightElementValue.innerHTML = `${height.toFixed()} ft`
-    widthElementValue.innerHTML = `${width.toFixed()} ft`
+    // Send a Custom Event to GA
+    if(roomArea > LARGE_ROOM_AREA) { 
+        ga('send', { 
+            hitType: 'event', 
+            eventCategory: 'LargeRoom', 
+            eventAction: 'LargeRoomSelected', 
+            eventLabel: 'Room size = ' + roomArea.toFixed(), 
+            eventValue: 0 
+        })
+    }
+
+    // Change the size of the DIV element representing the room
+    walls.style.width = (roomWidth * pixelsPerFoot).toFixed() + 'px'
+    walls.style.height = (roomLength * pixelsPerFoot).toFixed() + 'px'
+
+    // Show the number of feet for each dimension of the room
+    heightElementValue.innerHTML = `${roomLength.toFixed()} ft`
+    widthElementValue.innerHTML = `${roomWidth.toFixed()} ft`
 }

@@ -4,6 +4,7 @@
   "description": "A demo page showing how to capture complex Google Analytics custom events",
   "main": "src/acme.ts",
   "dependencies": {
+    "@types/google.analytics": "0.0.42",
     "@types/node": "^16.3.3",
     "prettier": "^2.3.2",
     "prettier-cli": "^0.1.0",
