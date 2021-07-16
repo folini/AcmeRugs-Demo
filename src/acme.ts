@@ -31,9 +31,9 @@ widthElement.addEventListener('input', roomSize)
 heightElement.addEventListener('input', roomSize)
 
 const catalogOfOfRugs: rugInfo[] = [
-    {name: 'Rug 1<span>7x10</span>', w: 7, h: 10, color: 'red', img: 'img/CarpetC.jpg'},
-    {name: 'Rug 2<span>12x12</span>', w: 12, h: 12, color: 'green', img: 'img/CarpetB.png'},
-    {name: 'Rug 3<span>12x6</span>', w: 12, h: 6, color: 'blue', img: 'img/CarpetD.png'},
+    {name: 'Rug 1<span>7x10</span>', w: 7, h: 10, color: 'red', img: '../img/CarpetC.jpg'},
+    {name: 'Rug 2<span>12x12</span>', w: 12, h: 12, color: 'green', img: '../img/CarpetB.png'},
+    {name: 'Rug 3<span>12x6</span>', w: 12, h: 6, color: 'blue', img: '../img/CarpetD.png'},
 ]
 
 for(let i=1; i<=3; i++) {
