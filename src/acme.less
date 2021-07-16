@@ -1,0 +1,92 @@
+// out: ../dist/, compress: true, sourceMap: false
+
+:root {
+  --wall-thickness: 10;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial;
+}
+header {
+  background-color: darkgreen;
+  padding: 1em;
+  color: #fff;
+  font-size: 2em;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+
+  .left-column {
+    background-color: lightgray;
+    padding: 10px;
+    border-right: solid 1px #aaa;
+  }
+  .central-area {
+    background-color: #fff;
+    width: 100%;
+
+    .controls {
+      padding: 8px;
+      display: flex;
+      border-bottom: solid 1px #aaa;
+      background-color: lightgray;
+
+      div {
+        text-align: center;
+      }
+    }
+  }
+}
+
+.walls {
+  position: relative;
+  background-color: #888;
+  width: 100px;
+  height: 100px;
+  margin-left: 60px;
+  margin-top: 60px;
+
+  .room {
+    background-color: #fff;
+    position: absolute;
+    top: var(--wall-thickness);
+    left: var(--wall-thickness);
+    bottom: var(--wall-thickness);
+    right: var(--wall-thickness);
+    overflow: hidden;
+    background-color: #fffbec;
+  }
+}
+
+#rugs-catalog {
+  list-style: none;
+  padding-left: 0;
+
+  li {
+    cursor: pointer;
+    padding: 8px;
+    border: solid 1px #aaa;
+    background-color: #fff;
+    margin: 8px;
+    text-align: center;
+    border-radius: 3px;
+
+    &:hover {
+      border-color: #444;
+    }
+
+    span {
+      display: block;
+      font-size: 0.8em;
+      text-align: center;
+    }
+  }
+}
+
+#active-rug {
+  background-repeat: no-repeat;
+}
