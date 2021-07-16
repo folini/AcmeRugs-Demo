@@ -1,4 +1,10 @@
 // out: ../dist/, compress: true, sourceMap: false
+// ----------------------------------------------------------------------------
+// © 2021 - Franco Folini
+// ----------------------------------------------------------------------------
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 
 @pixels-per-foot: 20;
 
@@ -11,13 +17,14 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: Arial;
+  font-family: Roboto;
 }
 header {
-  background-color: darkgreen;
-  padding: 1em;
+  background-color: #8f4b44;
+  padding: 16px;
   color: #fff;
-  font-size: 2em;
+  font-size: 3em;
+  font-family: Lobster;
 }
 
 main {
@@ -29,6 +36,12 @@ main {
     background-color: lightgray;
     padding: 10px;
     border-right: solid 1px #aaa;
+
+    .col-title {
+      text-align: center;
+      letter-spacing: -1px;
+      font-size: 1.3em;
+    }
   }
   .central-area {
     background-color: #fff;
@@ -89,7 +102,7 @@ main {
     background-color: #fff;
     margin: 8px;
     text-align: center;
-    border-radius: 3px;
+    border-radius: 6px;
 
     &:hover {
       border-color: #444;
