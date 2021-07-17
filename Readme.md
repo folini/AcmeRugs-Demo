@@ -29,10 +29,12 @@ This page has been described and explained in a blog post on Medium titled [Goog
 ## Carpets
 This example comes with 4 carpets.
 
+<div>
 <img height='120' src='./img/CarpetA.png'>
 <img height='120' src='./img/CarpetB.png'>
 <img height='120' src='./img/CarpetC.jpg'>
 <img height='120' src='./img/CarpetD.png'>
+</div>
 ---
 Copyright (c) 2021, Franco Folini
 All rights reserved.
