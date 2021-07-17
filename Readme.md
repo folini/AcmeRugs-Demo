@@ -35,6 +35,7 @@ This example comes with 4 carpets.
 <img height='120' src='./img/CarpetC.jpg'>
 <img height='120' src='./img/CarpetD.png'>
 </div>
+
 ---
 Copyright (c) 2021, Franco Folini
 All rights reserved.
