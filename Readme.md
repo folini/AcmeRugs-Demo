@@ -21,3 +21,7 @@ The example included in this repository are based on GA 3, and on the ga.js libr
 ## Additional lInformation
 This page has been described and explained in a blog post on Medium titled [Google Analytics Custom Events: from Clicks to Reports](https://folini.medium.com/google-analytics-custom-events-from-clicks-to-reports-beb274a95f3e).
 
+---
+Copyright (c) 2021, Franco Folini
+All rights reserved.
+
