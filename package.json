@@ -16,7 +16,8 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --progress --color --mode production --stats-error-details --config webpack.acme.js"
+    "build": "webpack --progress --color --mode production --stats-error-details --config webpack.acme.js",
+    "build-dev": "webpack --progress --color --mode development --stats-error-details --config webpack.acme.js"
   },
   "author": "Franco Folini",
   "license": "ISC"
