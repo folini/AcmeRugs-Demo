@@ -1,7 +1,7 @@
 # ACME Rugs Demo Page
 > Demo page for a fictitious _Rugs Store_ online business. The goal is to demonstrate how to capture custom events with Google Analytics
 
-![Acme Rugs interactive page](./img/Acmerugs.png)
+![Acme Rugs interactive page](./img/ACMErugs.png)
 
 ## License
 This simple example has ben released under the [BSD 3-Clause License](./LICENSE.md).
