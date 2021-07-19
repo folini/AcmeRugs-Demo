@@ -20,5 +20,5 @@
     "build-dev": "webpack --progress --color --mode development --stats-error-details --config webpack.acme.js"
   },
   "author": "Franco Folini",
-  "license": "ISC"
+  "license": "BSD 3-Clause"
 }
