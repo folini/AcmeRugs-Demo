@@ -31,9 +31,9 @@ roomWidthElement.addEventListener('input', updateRoomArea)
 roomLengthElement.addEventListener('input', updateRoomArea)
 
 const listOfRugs: rugInfo[] = [
-    {name: 'Rug 1<span>7x10</span>', w: 7, h: 10, color: 'red', img: '../img/CarpetC.jpg'},
-    {name: 'Rug 2<span>12x12</span>', w: 12, h: 12, color: 'green', img: '../img/CarpetB.png'},
-    {name: 'Rug 3<span>12x6</span>', w: 12, h: 6, color: 'blue', img: '../img/CarpetD.png'},
+    {name: 'Persian Rub', w: 7, h: 10, color: 'red', img: '../img/CarpetC.jpg'},
+    {name: 'Afghan Rub', w: 12, h: 12, color: 'green', img: '../img/CarpetB.png'},
+    {name: 'Desert Rug', w: 12, h: 6, color: 'blue', img: '../img/CarpetD.png'},
 ]
 
 listOfRugs.forEach(rug => addToCatalog(rug))
@@ -73,7 +73,7 @@ function removeActiveRug() {
 
 function addToCatalog(rugInfo: rugInfo) {
     const li = document.createElement('li')
-    li.innerHTML = rugInfo.name
+    li.innerHTML = `rugInfo.name<span>${rugInfo.w}x${rugInfo.h}</span>`
     const thumbnail = document.createElement('img')
     thumbnail.style.maxWidth = '62px'
     thumbnail.style.paddingTop = '4px'
